@@ -8,11 +8,16 @@ const buscarufsPorNome = (nomeuf) => {
     return colecaoUf.filter(uf => uf.nome.toLowerCase().includes(nomeuf.toLowerCase()));
 }
 
-app.get('/ufs', (req,res) => {
-const idUF = parseInt(req.params.idUF);
-const uf = colecaoUf.find(u => u.id === idUF);
-res.json(uf);
-})
+app.get('/ufs', (req, res) => {
+    const nomeuf = req.query.busca;
+    const resultado = nomeuf ? buscarufsPorNome(nomeuf) : buscarUfs;
+
+    if (resultado.length > 0) {
+        res.json(resultado)
+    } else {
+        res.status(404).send({"ERRO" : "Nenhuma UF encontrada" })
+    }
+});
 
 app.get('/ufs/:iduf', (req, res) => {
 const idUF = parseInt(req.params.iduf);
