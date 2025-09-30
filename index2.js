@@ -1,4 +1,4 @@
-import colecaoPr from "./dados/dados_2";
+import colecaoPr from "../dados/dados_2";
 import express from 'express'
 
 const app = express();
