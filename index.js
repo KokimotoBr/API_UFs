@@ -1,4 +1,4 @@
-import colecaoUf from "../dados/dados.js"; //tem q trocar
+import colecaoUf from "./dados/dados.js"; //tem q trocar
 import express from 'express';
 import { buscarUfs } from "./servicos/sevico.js";
 
